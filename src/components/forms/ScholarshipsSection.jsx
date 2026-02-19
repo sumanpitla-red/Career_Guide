@@ -7,14 +7,33 @@ export default function ScholarshipsSection({ scholarships, onChange }) {
         scholarshipType: "",
         categoryEligibility: "",
         incomeLimit: "",
-        amount: "",
+        categoryAmounts: [{ category: "General", amount: "" }],
         renewalType: "",
         officialWebsite: "",
+        note: "",
     };
 
     const handleInputChange = (index, field, value) => {
         const updated = [...scholarships];
         updated[index][field] = value;
+        onChange(updated);
+    };
+
+    const handleCategoryAmountChange = (scholarshipIndex, amountIndex, field, value) => {
+        const updated = [...scholarships];
+        updated[scholarshipIndex].categoryAmounts[amountIndex][field] = value;
+        onChange(updated);
+    };
+
+    const handleAddCategoryAmount = (scholarshipIndex) => {
+        const updated = [...scholarships];
+        updated[scholarshipIndex].categoryAmounts.push({ category: "", amount: "" });
+        onChange(updated);
+    };
+
+    const handleRemoveCategoryAmount = (scholarshipIndex, amountIndex) => {
+        const updated = [...scholarships];
+        updated[scholarshipIndex].categoryAmounts = updated[scholarshipIndex].categoryAmounts.filter((_, i) => i !== amountIndex);
         onChange(updated);
     };
 
@@ -55,7 +74,7 @@ export default function ScholarshipsSection({ scholarships, onChange }) {
                     </div>
 
                     <div className="form-grid">
-                        <div>
+                        <div style={{ gridColumn: 'span 2' }}>
                             <label>Scholarship Name</label>
                             <input
                                 type="text"
@@ -104,7 +123,7 @@ export default function ScholarshipsSection({ scholarships, onChange }) {
                         </div>
 
                         <div>
-                            <label>Category Eligibility</label>
+                            <label>Overall Category Eligibility</label>
                             <select
                                 value={item.categoryEligibility}
                                 onChange={(e) =>
@@ -115,8 +134,8 @@ export default function ScholarshipsSection({ scholarships, onChange }) {
                                 <option value="">Select</option>
                                 <option value="All">All Categories</option>
                                 <option value="SC/ST">SC/ST</option>
-                                <option value="SC/ST/OBC">SC/ST/OBC</option>
-                                <option value="SC/ST/OBC/EWS">SC/ST/OBC/EWS</option>
+                                <option value="OBC">OBC</option>
+                                <option value="EWS">EWS</option>
                                 <option value="General">General</option>
                             </select>
                         </div>
@@ -133,17 +152,54 @@ export default function ScholarshipsSection({ scholarships, onChange }) {
                             />
                         </div>
 
-                        <div>
-                            <label>Scholarship Amount</label>
-                            <input
-                                type="text"
-                                placeholder="e.g. ₹50,000 per year"
-                                value={item.amount}
-                                onChange={(e) =>
-                                    handleInputChange(index, "amount", e.target.value)
-                                }
-                                required
-                            />
+                        <div style={{ gridColumn: 'span 2', marginTop: '10px' }}>
+                            <label style={{ fontWeight: 'bold', marginBottom: '10px', display: 'block' }}>Scholarship Amounts by Category</label>
+                            {item.categoryAmounts.map((catAmt, catIdx) => (
+                                <div key={catIdx} style={{ display: 'flex', gap: '10px', marginBottom: '10px', alignItems: 'flex-end' }}>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={{ fontSize: '12px' }}>Category</label>
+                                        <select
+                                            value={catAmt.category}
+                                            onChange={(e) => handleCategoryAmountChange(index, catIdx, "category", e.target.value)}
+                                            required
+                                        >
+                                            <option value="">Select Category</option>
+                                            <option value="General">General</option>
+                                            <option value="OBC">OBC</option>
+                                            <option value="SC/ST">SC/ST</option>
+                                            <option value="EWS">EWS</option>
+                                            <option value="Minority">Minority</option>
+                                            <option value="All">All</option>
+                                        </select>
+                                    </div>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={{ fontSize: '12px' }}>Amount</label>
+                                        <input
+                                            type="text"
+                                            placeholder="e.g. ₹50,000"
+                                            value={catAmt.amount}
+                                            onChange={(e) => handleCategoryAmountChange(index, catIdx, "amount", e.target.value)}
+                                            required
+                                        />
+                                    </div>
+                                    {item.categoryAmounts.length > 1 && (
+                                        <button
+                                            type="button"
+                                            onClick={() => handleRemoveCategoryAmount(index, catIdx)}
+                                            style={{ backgroundColor: "#ff4d4d", padding: '10px', height: '42px' }}
+                                        >
+                                            ✕
+                                        </button>
+                                    )}
+                                </div>
+                            ))}
+                            <button
+                                type="button"
+                                onClick={() => handleAddCategoryAmount(index)}
+                                style={{ backgroundColor: "#2e7d32", fontSize: '12px', padding: '5px 10px', marginTop: '5px' }}
+                            >
+                                + Add Category Amount
+                            </button>
                         </div>
 
                         <div>
@@ -172,12 +228,31 @@ export default function ScholarshipsSection({ scholarships, onChange }) {
                                 }
                             />
                         </div>
+
+                        <div style={{ gridColumn: 'span 2' }}>
+                            <label>Additional Notes / Disclaimer</label>
+                            <textarea
+                                placeholder="e.g. Ensure all documents are uploaded before the deadline..."
+                                value={item.note || ""}
+                                onChange={(e) => handleInputChange(index, "note", e.target.value)}
+                                rows={3}
+                                style={{
+                                    width: '100%',
+                                    padding: '12px',
+                                    borderRadius: '8px',
+                                    border: '1px solid #ccc',
+                                    backgroundColor: '#fff',
+                                    color: '#333',
+                                    boxSizing: 'border-box'
+                                }}
+                            />
+                        </div>
                     </div>
                 </div>
             ))}
 
             <button type="button" onClick={handleAddMore} style={{ backgroundColor: "#213547", color: "white", border: "1px solid #535bf2" }}>
-                + Add Another Scholarship
+                {scholarships.length === 0 ? "Add Scholarship" : "+ Add Another Scholarship"}
             </button>
         </div>
     );

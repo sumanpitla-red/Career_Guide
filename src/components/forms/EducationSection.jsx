@@ -77,6 +77,24 @@ export default function EducationSection({ education, onChange }) {
                         <option value="No">No</option>
                     </select>
                 </div>
+                <div style={{ gridColumn: 'span 2' }}>
+                    <label>Additional Notes / Disclaimer</label>
+                    <textarea
+                        placeholder="e.g. Admission criteria may vary by college..."
+                        value={education.note || ""}
+                        onChange={(e) => handleChange("note", e.target.value)}
+                        rows={3}
+                        style={{
+                            width: '100%',
+                            padding: '12px',
+                            borderRadius: '8px',
+                            border: '1px solid #ccc',
+                            backgroundColor: '#fff',
+                            color: '#333',
+                            boxSizing: 'border-box'
+                        }}
+                    />
+                </div>
             </div>
         </div>
     );
