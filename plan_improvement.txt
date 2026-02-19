@@ -1,0 +1,85 @@
+Implementation Plan - Refactor Career Guidance Form Architecture
+Refactor the current linear form structure into a hierarchical one where users can add multiple education levels, each containing its own Education, Exams, Scholarships, and Jobs details.
+
+User Review Required
+IMPORTANT
+
+This is a major refactor of the state management and UI structure. The existing linear flow (Basic -> Edu -> Exam -> Scholar -> Job) will be replaced by a Basic Info section followed by a dynamic list of "Career Levels".
+
+Proposed Changes
+State Management (
+src/context/FormContext.jsx
+)
+[MODIFY] Update formData structure to include careerPath array instead of flat objects for educationDetails, examDetails, etc.
+[NEW] Add helper functions to contexts or custom hooks if needed to manage the complex nested state (add level, remove level, add item to level path).
+Components
+[NEW] src/components/LevelWrapper.jsx
+A component to represent a single career level (e.g., "After 10th").
+Contains local state or controllable props for:
+Education Form (Single object)
+Exams List (Array)
+Scholarships List (Array)
+Jobs List (Array)
+Renders sub-components for each section.
+[NEW] src/components/forms/EducationSection.jsx
+Extracted from 
+EducationForm.jsx
+.
+Props: data, onChange.
+[NEW] src/components/forms/ExamsSection.jsx
+Extracted from 
+ExamsForm.jsx
+.
+Props: examsList, onChange (to add/remove/update exams).
+[NEW] src/components/forms/ScholarshipsSection.jsx
+Extracted from 
+ScholarshipsForm.jsx
+.
+Props: scholarshipsList, onChange.
+[NEW] src/components/forms/JobsSection.jsx
+Extracted from 
+JobsForm.jsx
+.
+Props: jobsList, onChange.
+Pages
+[MODIFY] 
+src/App.jsx
+Update routes. Likely consolidate many into a single CareerRoadmapPage or keep BasicInfo separate and then a main CareerPath builder page.
+Remove routes for individual form pages if they are no longer standalone steps.
+[NEW] src/pages/CareerRoadmapPage.jsx
+The main container that iterates over formData.careerPath.
+Renders LevelWrapper for each level.
+"Add Level" button.
+"Submit" button at the bottom to save to Firestore.
+[MODIFY] 
+src/pages/BasicForm.jsx
+Keep as the entry point.
+Update 
+handleSubmit
+ to navigate to the new CareerRoadmapPage.
+[DELETE]
+src/pages/EducationForm.jsx
+ (logic moved to component)
+src/pages/ExamsForm.jsx
+ (logic moved to component)
+src/pages/ScholarshipsForm.jsx
+ (logic moved to component)
+src/pages/JobsForm.jsx
+ (logic moved to component)
+Verification Plan
+Manual Verification
+Start the dev server: npm run dev
+Basic Info: Fill out the basic info form and click Next.
+Add Level:
+Click "Add Level".
+Select "After 10th".
+Fill out Education details.
+Add an Exam.
+Add a Scholarship.
+Add a Job.
+Add Another Level:
+Click "Add Level" again.
+Select "After 12th".
+Fill out details for this new level.
+Remove Level: Try removing one level and verify it disappears.
+Submit: Click Submit and check the console/Firestore for the correct hierarchical JSON structure as specified in the prompt.

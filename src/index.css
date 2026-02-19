@@ -1,0 +1,125 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  /* Fallback */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: transparent;
+  /* Allow canvas to show through */
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+  color: #ffffff;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+  /* Blue glow */
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+  color: white;
+  border: 1px solid #535bf2;
+}
+
+button:hover {
+  border-color: #646cff;
+  background-color: #2a2a2a;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+input,
+select {
+  padding: 10px;
+  border: 1px solid #555;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.9);
+  /* Light background for readability */
+  color: #333;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #ddd;
+  /* Light text for dark background */
+  text-align: left;
+}
+
+.section-container {
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  /* Glassmorphism */
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* Ensure text inside the white inputs is readable */
+.section-container input,
+.section-container select {
+  background-color: #ffffff;
+  color: #333;
+}
+
+/* Headings inside the glass container */
+.section-container h2,
+.section-container h3,
+.section-container h4 {
+  color: #fff;
+  margin-top: 0;
+}
+
+/* Inner cards if any */
+.section-container div[style*="background-color: #f9f9f9"] {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}

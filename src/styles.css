@@ -1,0 +1,51 @@
+body {
+  margin: 0;
+  /* font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  /* color, background handled in index.css */
+}
+
+.section {
+  padding: 40px 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  /* Glassmorphism for the main wrapper too if needed, or keep transparent */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  /* Allow form to take full width of container */
+  max-width: 800px;
+  /* But don't let it get too wide */
+  margin: 0 auto;
+}
+
+input,
+select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+button {
+  padding: 12px 24px;
+  border: none;
+  background-color: #213547;
+  color: white;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #1a2a3a;
+}

@@ -1,0 +1,57 @@
+{
+    profession: "Software Engineer",
+    basicInfo: {
+      name: "John Doe",
+      age: 25,
+      education: "B.Tech in Computer Science",
+    },
+    careerPath: [
+      {
+        level: "Undergraduate",
+        duration: "4 years",
+        education: {
+          programName: "B.Tech",
+          courseDetails: "Computer Science",
+        },
+        exams: [
+          {
+            examName: "JEE Advanced",
+            eligibility: "12th Pass",
+            ageLimit: "17-25",
+            cutoff: "90%",
+            examType: "Online",
+            negativeMarking: "Yes",
+          },
+        ],
+        scholarships: [
+          {
+            name: "National Scholarship",
+            eligibility: "Merit-based",
+            amount: "₹50,000",
+          },
+        ],
+        jobs: [
+          {
+            postName: "Software Developer",
+            postType: "Regular",
+            organisationType: "Private",
+            govtLevel: null,
+            eligibility: "B.Tech in CS",
+            conductedExam: "None",
+            salary: "₹6 LPA",
+            officialWebsite: "https://example.com",
+            notificationFrequency: "Yearly",
+            syllabus: "N/A",
+            previousPapers: "N/A",
+          },
+        ],
+      },
+    ],
+    professionalInsights: {
+      currentPosition: "Senior Software Engineer",
+      experienceYears: 5,
+      advice: "Focus on problem-solving and communication skills.",
+      challenges: "Keeping up with rapidly changing technology.",
+      recommendedSkills: ["Data Structures", "System Design", "Cloud Computing"],
+    },
+  }
