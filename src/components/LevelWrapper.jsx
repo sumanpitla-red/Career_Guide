@@ -50,8 +50,8 @@ export default function LevelWrapper({ levelData, onChange, onRemove, index }) {
                     style={{ padding: "8px", marginLeft: "10px" }}
                 >
                     <option value="">Select Level</option>
-                    <option value="After 10th">After 10th</option>
-                    <option value="After 12th">After 12th</option>
+                    <option value="Intermediate(12th)">Intermediate(12th)</option>
+                    <option value="Diploma">Diploma</option>
                     <option value="Under Graduation">Under Graduation</option>
                     <option value="Post Graduation">Post Graduation</option>
                     <option value="PhD">PhD</option>
@@ -61,21 +61,25 @@ export default function LevelWrapper({ levelData, onChange, onRemove, index }) {
             <EducationSection
                 education={levelData.educationDetails || {}}
                 onChange={(data) => handleChange("educationDetails", data)}
+                levelName={levelData.levelName}
             />
 
             <ExamsSection
                 exams={levelData.examDetails || []}
                 onChange={(data) => handleChange("examDetails", data)}
+                levelName={levelData.levelName}
             />
 
             <ScholarshipsSection
                 scholarships={levelData.scholarshipDetails || []}
                 onChange={(data) => handleChange("scholarshipDetails", data)}
+                levelName={levelData.levelName}
             />
 
             <JobsSection
                 jobs={levelData.jobDetails || []}
                 onChange={(data) => handleChange("jobDetails", data)}
+                levelName={levelData.levelName}
             />
         </div>
     );

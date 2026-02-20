@@ -1,11 +1,11 @@
-export default function EducationSection({ education, onChange }) {
+export default function EducationSection({ education, onChange, levelName }) {
     const handleChange = (field, value) => {
         onChange({ ...education, [field]: value });
     };
 
     return (
         <div className="section-container">
-            <h3>Education Details</h3>
+            <h3>Education Details {levelName ? `for ${levelName}` : ""}</h3>
             <div className="form-grid">
                 <div>
                     <label>Program Name</label>
@@ -76,6 +76,24 @@ export default function EducationSection({ education, onChange }) {
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
                     </select>
+                </div>
+                <div style={{ gridColumn: 'span 2' }}>
+                    <label>Additional Notes / Disclaimer</label>
+                    <textarea
+                        placeholder="e.g. Admission criteria may vary by college..."
+                        value={education.note || ""}
+                        onChange={(e) => handleChange("note", e.target.value)}
+                        rows={3}
+                        style={{
+                            width: '100%',
+                            padding: '12px',
+                            borderRadius: '8px',
+                            border: '1px solid #ccc',
+                            backgroundColor: '#fff',
+                            color: '#333',
+                            boxSizing: 'border-box'
+                        }}
+                    />
                 </div>
             </div>
         </div>
