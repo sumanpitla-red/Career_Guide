@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function JobsSection({ jobs, onChange }) {
+export default function JobsSection({ jobs, onChange, levelName }) {
     const emptyJob = {
         organizationName: "",
         postName: "",
@@ -58,7 +58,7 @@ export default function JobsSection({ jobs, onChange }) {
 
     return (
         <div className="section-container">
-            <h3>Job Opportunities</h3>
+            <h3>Job Opportunities {levelName ? `for ${levelName}` : ""}</h3>
             {jobs.map((job, index) => (
                 <div
                     key={index}

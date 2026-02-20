@@ -1,11 +1,11 @@
-export default function EducationSection({ education, onChange }) {
+export default function EducationSection({ education, onChange, levelName }) {
     const handleChange = (field, value) => {
         onChange({ ...education, [field]: value });
     };
 
     return (
         <div className="section-container">
-            <h3>Education Details</h3>
+            <h3>Education Details {levelName ? `for ${levelName}` : ""}</h3>
             <div className="form-grid">
                 <div>
                     <label>Program Name</label>

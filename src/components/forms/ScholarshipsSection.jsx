@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ScholarshipsSection({ scholarships, onChange }) {
+export default function ScholarshipsSection({ scholarships, onChange, levelName }) {
     const emptyScholarship = {
         scholarshipName: "",
         providerType: "",
@@ -48,7 +48,7 @@ export default function ScholarshipsSection({ scholarships, onChange }) {
 
     return (
         <div className="section-container">
-            <h3>Scholarships</h3>
+            <h3>Scholarships {levelName ? `for ${levelName}` : ""}</h3>
             {scholarships.map((item, index) => (
                 <div
                     key={index}

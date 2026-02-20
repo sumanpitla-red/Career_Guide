@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ExamsSection({ exams, onChange }) {
+export default function ExamsSection({ exams, onChange, levelName }) {
     const emptyExam = {
         examName: "",
         eligibility: "",
@@ -46,7 +46,7 @@ export default function ExamsSection({ exams, onChange }) {
 
     return (
         <div className="section-container">
-            <h3>Entrance Examinations</h3>
+            <h3>Entrance Examinations {levelName ? `for ${levelName}` : ""}</h3>
             {exams.map((exam, index) => (
                 <div
                     key={index}
