@@ -10,6 +10,7 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   box-sizing: border-box;
+  
   /* Glassmorphism for the main wrapper too if needed, or keep transparent */
 }
 
@@ -48,4 +49,285 @@ button {
 
 button:hover {
   background-color: #1a2a3a;
+}
+
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .roadmap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Home Page Styles */
+.home-container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  background: linear-gradient(90deg, #007bff, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  color: #ccc;
+  max-width: 600px;
+  margin: 0 auto;
+
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 800px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.input-group {
+  display: flex;
+  gap: 15px;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .input-group {
+    flex-direction: column;
+  }
+}
+
+.inspiring-text {
+  font-style: italic;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #eee;
+  margin: 20px 0;
+}
+
+.inspiration-container {
+  text-align: left;
+  margin: 25px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.text-option p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.highlight-text {
+  font-weight: 600;
+  color: #00d4ff;
+  font-style: italic;
+}
+
+.impact-text {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #28a745;
+  margin-top: 15px;
+  text-align: center;
+  letter-spacing: 1px;
+  background-color: #ffff;
+  border-radius: 8px;
+  width:70%;
+  text-align: center;
+  margin: 20px auto;
+
+}
+
+.divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  margin: 10px 0;
+}
+
+.github-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: transform 0.2s;
+}
+
+.github-link:hover {
+  transform: translateY(-2px);
+  background-color: #444;
+}
+
+.footer {
+  margin-top: 40px;
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.cta-button {
+  background: linear-gradient(135deg, #28a745, #218838);
+  width:30%;
+  margin:auto;
+}
+
+.cta-button:hover {
+  background: linear-gradient(135deg, #218838, #1e7e34);
+}
+
+/* Home Page Enhancements */
+.hero-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.text-yellow-glow {
+  color: #fbbf24;
+  text-shadow: 0 0 15px rgba(251, 191, 36, 0.4);
+}
+
+.problem-section {
+  padding: 80px 20px;
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.feature-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease, border-color 0.3s;
+  border: 2px solid transparent;
+}
+
+.feature-image:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: #00d4ff;
+}
+
+.solution-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.cta-section {
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+  text-align: center;
+}
+
+.max-w-4xl {
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn-large {
+  padding: 16px 40px;
+  font-size: 1.2rem;
+  border-radius: 50px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+  .hero-gradient h1 {
+    font-size: 2.2rem;
+  }
+}
+
+.roadmap-header {
+  text-align: center;
+  margin-bottom: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.roadmap-actions {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 25px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.btn-success {
+  background-color: #28a745;
+  transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  .roadmap-actions {
+    flex-direction: column;
+  }
+}
+
+.btn-add {
+  background-color: transparent;
+  color: #00d4ff;
+  border: 1px dashed #00d4ff;
+  width: 100%;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-add:hover {
+  background-color: rgba(0, 212, 255, 0.1);
+  border-style: solid;
+}
+
+.text-blue {
+  color: #00d4ff;
 }

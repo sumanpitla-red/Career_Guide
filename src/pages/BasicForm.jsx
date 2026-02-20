@@ -18,22 +18,62 @@ export default function BasicForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setFormData({ ...formData, basicInfo: data });
-
     navigate("/career-roadmap");
   };
 
-
   return (
     <StepWrapper>
-      <h1>Basic Information</h1>
-      <form onSubmit={handleSubmit}>
-        <input placeholder="Name" onChange={(e) => setData({ ...data, name: e.target.value })} required />
-        <input placeholder="Email" onChange={(e) => setData({ ...data, email: e.target.value })} required />
-        <input placeholder="Phone" onChange={(e) => setData({ ...data, phone: e.target.value })} required />
-        <input placeholder="State" onChange={(e) => setData({ ...data, state: e.target.value })} required />
-        <input placeholder="Profession" onChange={(e) => setData({ ...data, profession: e.target.value })} required />
-        <button type="submit">Next</button>
-      </form>
+      <div className="home-container">
+
+        <section className="form-section card">
+            <p className="impact-text">Share your path. Inspire clarity. Create impact.</p>
+          <p>Fill in your basic information to begin building your roadmap.</p>
+          <form onSubmit={handleSubmit}>
+            <div className="input-group">
+              <input 
+                placeholder="Name" 
+                value={data.name}
+                onChange={(e) => setData({ ...data, name: e.target.value })} 
+                required 
+              />
+              <input 
+                placeholder="Email" 
+                type="email"
+                value={data.email}
+                onChange={(e) => setData({ ...data, email: e.target.value })} 
+                required 
+              />
+            </div>
+            <div className="input-group">
+              <input 
+                placeholder="Phone" 
+                value={data.phone}
+                onChange={(e) => setData({ ...data, phone: e.target.value })} 
+                required 
+              />
+              <input 
+                placeholder="State" 
+                value={data.state}
+                onChange={(e) => setData({ ...data, state: e.target.value })} 
+                required 
+              />
+            </div>
+            <input 
+              placeholder="Target Profession (e.g., Software Engineer, Doctor)" 
+              value={data.profession}
+              onChange={(e) => setData({ ...data, profession: e.target.value })} 
+              required 
+            />
+            <button type="submit" className="cta-button">Next: Build Roadmap</button>
+          </form>
+        </section>
+
+        
+
+        <footer className="footer">
+          <p>&copy; 2026 Career Guide Project. All rights reserved.</p>
+        </footer>
+      </div>
     </StepWrapper>
   );
 }
