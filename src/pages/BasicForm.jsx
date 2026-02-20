@@ -26,7 +26,7 @@ export default function BasicForm() {
       <div className="home-container">
 
         <section className="form-section card">
-            <p className="impact-text">Share your path. Inspire clarity. Create impact.</p>
+            <p className="impact-text"> <span style={{color:"orange"}}>Share your path.</span> <span style={{color:"white"}}>Inspire clarity.</span> Create impact.</p>
           <p>Fill in your basic information to begin building your roadmap.</p>
           <form onSubmit={handleSubmit}>
             <div className="input-group">
