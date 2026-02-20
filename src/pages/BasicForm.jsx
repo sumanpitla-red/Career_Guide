@@ -11,7 +11,7 @@ export default function BasicForm() {
     name: "",
     email: "",
     phone: "",
-    state: "",
+    city: "",
     profession: ""
   });
 
@@ -28,6 +28,25 @@ export default function BasicForm() {
         <section className="form-section card">
             <p className="impact-text"> <span style={{color:"orange"}}>Share your path.</span> <span style={{color:"white"}}>Inspire clarity.</span> Create impact.</p>
           <p>Fill in your basic information to begin building your roadmap.</p>
+          <div
+            style={{
+              backgroundColor: "rgba(255, 255, 255, 0.08)",
+              borderLeft: "4px solid orange",
+              padding: "12px 16px",
+              margin: "15px 0 20px 0",
+              borderRadius: "8px",
+              fontSize: "14px",
+              color: "#e0e0e0",
+              lineHeight: "1.5",
+            }}
+            >
+            <p style={{ margin: 0 }}>
+              🔒 Your privacy matters. If you are not comfortable sharing your
+              email or phone number, you may simply type <strong>“NA”</strong>.
+              This platform is built purely for structured career guidance and
+              educational impact.
+            </p>
+          </div>
           <form onSubmit={handleSubmit}>
             <div className="input-group">
               <input 
@@ -37,29 +56,27 @@ export default function BasicForm() {
                 required 
               />
               <input 
-                placeholder="Email" 
+                placeholder="Email (Optional)" 
                 type="email"
                 value={data.email}
-                onChange={(e) => setData({ ...data, email: e.target.value })} 
-                required 
+                onChange={(e) => setData({ ...data, email: e.target.value })}
               />
             </div>
             <div className="input-group">
               <input 
-                placeholder="Phone" 
+                placeholder="Phone (Optional)" 
                 value={data.phone}
                 onChange={(e) => setData({ ...data, phone: e.target.value })} 
-                required 
               />
               <input 
-                placeholder="State" 
-                value={data.state}
-                onChange={(e) => setData({ ...data, state: e.target.value })} 
+                  placeholder="City e.g. Hyderabad" 
+                  value={data.city}
+                onChange={(e) => setData({ ...data, city: e.target.value })} 
                 required 
               />
             </div>
             <input 
-              placeholder="Target Profession (e.g., Software Engineer, Doctor)" 
+              placeholder="Target Profession (e.g., Software Engineer, Doctor, Lawyer, Collector etc)" 
               value={data.profession}
               onChange={(e) => setData({ ...data, profession: e.target.value })} 
               required 
