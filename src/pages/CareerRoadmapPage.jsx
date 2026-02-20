@@ -60,33 +60,37 @@ export default function CareerRoadmapPage() {
 
     return (
         <StepWrapper>
-            <h1>Build Career Roadmap</h1>
-            <p>
-                <strong>Profession:</strong> {formData.basicInfo?.profession}
-            </p>
+            <div className="roadmap-header">
+                <h1>Build Your Career Roadmap</h1>
+                <p style={{ fontSize: "1.2rem", color: "#ddd" }}>
+                    Targeting Profession: <strong style={{ color: "#00d4ff" }}>{formData.basicInfo?.profession}</strong>
+                </p>
 
-            {(formData.careerPath || []).map((level, index) => (
-                <LevelWrapper
-                    key={level.id || index}
-                    index={index}
-                    levelData={level}
-                    onChange={(data) => handleLevelChange(index, data)}
-                    onRemove={() => handleRemoveLevel(index)}
-                />
-            ))}
+                <div className="roadmap-actions">
+                    <button type="button" className="btn-primary" onClick={handleAddLevel}>
+                        + Add Career Level
+                    </button>
 
-            <div style={{ marginTop: "20px", display: "flex", gap: "15px" }}>
-                <button type="button" onClick={handleAddLevel}>
-                    + Add Career Level
-                </button>
+                    <button
+                        type="button"
+                        className="btn-success"
+                        onClick={handleSubmit}
+                    >
+                        Submit Roadmap
+                    </button>
+                </div>
+            </div>
 
-                <button
-                    type="button"
-                    onClick={handleSubmit}
-                    style={{ backgroundColor: "#28a745" }}
-                >
-                    Submit Roadmap
-                </button>
+            <div className="roadmap-grid">
+                {(formData.careerPath || []).map((level, index) => (
+                    <LevelWrapper
+                        key={level.id || index}
+                        index={index}
+                        levelData={level}
+                        onChange={(data) => handleLevelChange(index, data)}
+                        onRemove={() => handleRemoveLevel(index)}
+                    />
+                ))}
             </div>
         </StepWrapper>
     );

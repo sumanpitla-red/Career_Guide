@@ -215,7 +215,7 @@ export default function ExamsSection({ exams, onChange, levelName }) {
             ))
             }
 
-            <button type="button" onClick={handleAddMore} style={{ backgroundColor: "#213547", color: "white", border: "1px solid #535bf2" }}>
+            <button type="button" onClick={handleAddMore} className="btn-add">
                 {exams.length === 0 ? "Add Entrance Examination" : "+ Add Another Exam"}
             </button>
         </div >

@@ -251,7 +251,7 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                 </div>
             ))}
 
-            <button type="button" onClick={handleAddMore} style={{ backgroundColor: "#213547", color: "white", border: "1px solid #535bf2" }}>
+            <button type="button" onClick={handleAddMore} className="btn-add">
                 {scholarships.length === 0 ? "Add Scholarship" : "+ Add Another Scholarship"}
             </button>
         </div>

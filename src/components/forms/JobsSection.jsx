@@ -364,7 +364,7 @@ export default function JobsSection({ jobs, onChange, levelName }) {
                 </div>
             ))}
 
-            <button type="button" onClick={handleAddMore} style={{ backgroundColor: "#213547", color: "white", border: "1px solid #535bf2" }}>
+            <button type="button" onClick={handleAddMore} className="btn-add">
                 {jobs.length === 0 ? "Add Job Profile" : "+ Add Another Job Profile"}
             </button>
         </div>

@@ -13,9 +13,12 @@ export default function LevelWrapper({ levelData, onChange, onRemove, index }) {
             style={{
                 border: "1px solid rgba(255, 255, 255, 0.2)",
                 padding: "20px",
-                margin: "20px 0",
                 borderRadius: "10px",
                 backgroundColor: "rgba(0, 0, 0, 0.2)",
+                display: "flex",
+                flexDirection: "column",
+                height: "100%",
+                backdropFilter: "blur(10px)",
             }}
         >
             <div
@@ -23,20 +26,27 @@ export default function LevelWrapper({ levelData, onChange, onRemove, index }) {
                     display: "flex",
                     justifyContent: "space-between",
                     alignItems: "center",
-                    marginBottom: "20px",
+                    marginBottom: "25px",
+                    borderBottom: "1px solid rgba(255, 255, 255, 0.1)",
+                    paddingBottom: "15px"
                 }}
             >
-                <h2>Career Level {index + 1}</h2>
+                <h2 style={{ margin: 0, color: "#00d4ff", fontSize: "1.5rem" }}>Level {index + 1}</h2>
                 <button
                     onClick={onRemove}
                     style={{
-                        backgroundColor: "#ff4d4d",
-                        color: "white",
-                        border: "none",
-                        padding: "8px 15px",
-                        borderRadius: "5px",
+                        backgroundColor: "rgba(255, 77, 77, 0.1)",
+                        color: "#ff4d4d",
+                        border: "1px solid #ff4d4d",
+                        padding: "6px 12px",
+                        borderRadius: "6px",
                         cursor: "pointer",
+                        fontSize: "0.85rem",
+                        fontWeight: "600",
+                        transition: "all 0.2s"
                     }}
+                    onMouseOver={(e) => { e.currentTarget.style.backgroundColor = "#ff4d4d"; e.currentTarget.style.color = "white"; }}
+                    onMouseOut={(e) => { e.currentTarget.style.backgroundColor = "rgba(255, 77, 77, 0.1)"; e.currentTarget.style.color = "#ff4d4d"; }}
                 >
                     Remove Level
                 </button>

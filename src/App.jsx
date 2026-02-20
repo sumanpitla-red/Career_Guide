@@ -4,13 +4,15 @@ import { FormProvider } from "./context/FormContext";
 import BasicForm from "./pages/BasicForm";
 import CareerRoadmapPage from "./pages/CareerRoadmapPage";
 import Success from "./pages/Success";
+import Home from "./pages/Home";
 
 export default function App() {
   return (
     <FormProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<BasicForm />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/basic-form" element={<BasicForm />} />
           <Route path="/career-roadmap" element={<CareerRoadmapPage />} />
           <Route path="/success" element={<Success />} />
         </Routes>
