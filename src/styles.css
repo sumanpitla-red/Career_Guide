@@ -47,6 +47,33 @@ button {
   transition: background-color 0.2s;
 }
 
+.roadmap-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 40px; /* increased spacing */
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+
+.level-card {
+  padding: 25px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.level-card.even {
+  background: rgba(0, 123, 255, 0.08); /* light blue */
+}
+
+.level-card.odd {
+  background: red; /* light red */
+}
+
 button:hover {
   background-color: #1a2a3a;
 }
@@ -102,6 +129,9 @@ button:hover {
   max-width: 800px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
+
+
+
 
 .input-group {
   display: flex;
@@ -164,20 +194,9 @@ button:hover {
   margin: 10px 0;
 }
 
-.github-link {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #333;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: transform 0.2s;
-}
 
-.github-link:hover {
-  transform: translateY(-2px);
-  background-color: #444;
-}
+
+
 
 .footer {
   margin-top: 40px;
@@ -286,6 +305,7 @@ button:hover {
   gap: 20px;
   justify-content: center;
   margin-top: 25px;
+  overflow: auto;
 }
 
 .btn-primary {

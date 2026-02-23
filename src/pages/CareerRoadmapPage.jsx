@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { FormContext } from "../context/FormContext";
 import { useNavigate } from "react-router-dom";
 import { db } from "../firebase/firebase";
@@ -10,13 +10,19 @@ export default function CareerRoadmapPage() {
     const { formData, setFormData } = useContext(FormContext);
     const navigate = useNavigate();
 
+    useEffect(() => {
+        if (!formData.careerPath || formData.careerPath.length === 0) {
+            handleAddLevel();
+        }
+    }, []);
+
     const handleAddLevel = () => {
         setFormData({
             ...formData,
             careerPath: [
                 ...(formData.careerPath || []),
                 {
-                    id: Date.now(), // simple unique id
+                    id: Date.now(),
                     educationDetails: {},
                     examDetails: [],
                     scholarshipDetails: [],
@@ -50,10 +56,9 @@ export default function CareerRoadmapPage() {
             };
 
             await addDoc(collection(db, "careerRoadmaps"), finalData);
-            console.log("Data submitted:", finalData);
             navigate("/success");
         } catch (error) {
-            console.error("Error submitting data:", error);
+            console.error(error);
             alert("Error submitting data. Please try again.");
         }
     };
@@ -62,12 +67,42 @@ export default function CareerRoadmapPage() {
         <StepWrapper>
             <div className="roadmap-header">
                 <h1>Build Your Career Roadmap</h1>
-                <p style={{ fontSize: "1.2rem", color: "#ddd" }}>
-                    Targeting Profession: <strong style={{ color: "#00d4ff" }}>{formData.basicInfo?.profession}</strong>
+                <p
+                    style={{
+                        fontSize: "1.75rem",
+                        color: "#ddd",
+                        background: "rgba(0, 0, 0, 0.1)",
+                        padding: "15px",
+                        borderRadius: "8px",
+                    }}
+                >
+                    Targeting Profession:{" "}
+                    <strong style={{ color: "#00d4ff" }}>
+                        {formData.basicInfo?.profession}
+                    </strong>
                 </p>
+            </div>
+
+            <div className="roadmap-grid">
+                {(formData.careerPath || []).map((level, index) => (
+                    <LevelWrapper
+                        key={level.id || index}
+                        index={index}
+                        levelData={level}
+                       levelColor={index % 3}
+                        onChange={(data) => handleLevelChange(index, data)}
+                        onRemove={
+                            index === 0 ? null : () => handleRemoveLevel(index)
+                        }
+                    />
+                ))}
 
                 <div className="roadmap-actions">
-                    <button type="button" className="btn-primary" onClick={handleAddLevel}>
+                    <button
+                        type="button"
+                        className="btn-primary"
+                        onClick={handleAddLevel}
+                    >
                         + Add Career Level
                     </button>
 
@@ -79,18 +114,6 @@ export default function CareerRoadmapPage() {
                         Submit Roadmap
                     </button>
                 </div>
-            </div>
-
-            <div className="roadmap-grid">
-                {(formData.careerPath || []).map((level, index) => (
-                    <LevelWrapper
-                        key={level.id || index}
-                        index={index}
-                        levelData={level}
-                        onChange={(data) => handleLevelChange(index, data)}
-                        onRemove={() => handleRemoveLevel(index)}
-                    />
-                ))}
             </div>
         </StepWrapper>
     );
