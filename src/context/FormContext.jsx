@@ -7,8 +7,15 @@ export function FormProvider({ children }) {
     basicInfo: {},
     careerPath: []
   });
+  const resetForm = () => {
+    setFormData({
+      basicInfo: {},
+      careerPath: []
+    });
+  };
+
   return (
-    <FormContext.Provider value={{ formData, setFormData }}>
+    <FormContext.Provider value={{ formData, setFormData, resetForm }}>
       {children}
     </FormContext.Provider>
   );

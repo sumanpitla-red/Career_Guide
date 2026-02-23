@@ -7,14 +7,20 @@ import LevelWrapper from "../components/LevelWrapper";
 import StepWrapper from "../components/StepWrapper";
 
 export default function CareerRoadmapPage() {
-    const { formData, setFormData } = useContext(FormContext);
+    const { formData, setFormData, resetForm } = useContext(FormContext);
     const navigate = useNavigate();
 
     useEffect(() => {
+        // Guard: If no basic info, user shouldn't be here (prevents stale data on back)
+        if (!formData.basicInfo || Object.keys(formData.basicInfo).length === 0) {
+            navigate("/");
+            return;
+        }
+
         if (!formData.careerPath || formData.careerPath.length === 0) {
             handleAddLevel();
         }
-    }, []);
+    }, [formData.basicInfo, navigate]);
 
     const handleAddLevel = () => {
         setFormData({
@@ -81,22 +87,6 @@ export default function CareerRoadmapPage() {
                         {formData.basicInfo?.profession}
                     </strong>
                 </p>
-            </div>
-
-            <div className="roadmap-grid">
-                {(formData.careerPath || []).map((level, index) => (
-                    <LevelWrapper
-                        key={level.id || index}
-                        index={index}
-                        levelData={level}
-                       levelColor={index % 3}
-                        onChange={(data) => handleLevelChange(index, data)}
-                        onRemove={
-                            index === 0 ? null : () => handleRemoveLevel(index)
-                        }
-                    />
-                ))}
-
                 <div style={{
                     backgroundColor: "rgba(255, 165, 0, 0.1)",
                     borderLeft: "4px solid orange",
@@ -108,11 +98,28 @@ export default function CareerRoadmapPage() {
                     fontSize: "0.95rem",
                     lineHeight: "1.5"
                 }}>
-                    <strong>Note:</strong> Please respond to all fields before submitting. 
-                    If any section is not relevant to your experience, simply enter 
-                    <strong>"NA"</strong> or select <strong>"NA"</strong>. 
+                    <strong>Note:</strong> Please respond to all fields before submitting.
+                    If any section Field is not relevant or not applicable to your experience, simply enter
+                    <strong>"NA"</strong> or select <strong>"NA"</strong>.
                     Kindly ensure each response reflects your professional journey.
                 </div>
+            </div>
+
+            <div className="roadmap-grid">
+                {(formData.careerPath || []).map((level, index) => (
+                    <LevelWrapper
+                        key={level.id || index}
+                        index={index}
+                        levelData={level}
+                        levelColor={index % 3}
+                        onChange={(data) => handleLevelChange(index, data)}
+                        onRemove={
+                            index === 0 ? null : () => handleRemoveLevel(index)
+                        }
+                    />
+                ))}
+
+
 
 
                 <div className="roadmap-actions">
@@ -121,7 +128,7 @@ export default function CareerRoadmapPage() {
                         className="btn-primary"
                         onClick={handleAddLevel}
                     >
-                        + Add Career Level
+                        + Add Next Career Level
                     </button>
 
                     <button

@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import StepWrapper from '../components/StepWrapper';
+import { FormContext } from '../context/FormContext';
 
 const Success = () => {
   const navigate = useNavigate();
+  const { resetForm } = useContext(FormContext);
+
+  useEffect(() => {
+    resetForm();
+  }, [resetForm]);
 
   return (
     <StepWrapper>
@@ -21,8 +27,8 @@ const Success = () => {
             Because of professionals like you, talent will no longer be limited
             by lack of direction. Your contribution creates real impact.
           </p>
-          <button 
-            className="btn-primary" 
+          <button
+            className="btn-primary"
             onClick={() => navigate('/')}
             style={{ marginTop: "30px" }}
           >
