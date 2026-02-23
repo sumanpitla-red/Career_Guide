@@ -123,6 +123,7 @@ export default function JobsSection({ jobs, onChange, levelName }) {
                                 <option value="Regular">Regular</option>
                                 <option value="Part-Time">Part-Time</option>
                                 <option value="Contract">Contract</option>
+                                <option value="NA">NA</option>
                             </select>
                         </div>
 
@@ -139,6 +140,7 @@ export default function JobsSection({ jobs, onChange, levelName }) {
                                 <option value="Private">Private</option>
                                 <option value="Government">Government</option>
                                 <option value="Aided">Aided</option>
+                                <option value="NA">NA</option>
                             </select>
                         </div>
 
@@ -156,6 +158,7 @@ export default function JobsSection({ jobs, onChange, levelName }) {
                                     <option value="State">State</option>
                                     <option value="Central">Central</option>
                                     <option value="PSU">PSU</option>
+                                    <option value="NA">NA</option>
                                 </select>
                             </div>
                         )}
@@ -227,6 +230,55 @@ export default function JobsSection({ jobs, onChange, levelName }) {
                         </div>
 
                         <div />
+
+
+
+                        {job.organisationType !== "Government" && (
+                            <>
+                                <div>
+                                    <label>Syllabus (Link or Short Description)</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Link or description"
+                                        value={job.syllabus}
+                                        onChange={(e) =>
+                                            handleInputChange(index, "syllabus", e.target.value)
+                                        }
+                                    />
+                                </div>
+
+                                <div>
+                                    <label>Previous / Sample Question Papers</label>
+                                    <input
+                                        type="text"
+                                        placeholder="Link or description"
+                                        value={job.previousPapers}
+                                        onChange={(e) =>
+                                            handleInputChange(index, "previousPapers", e.target.value)
+                                        }
+                                    />
+                                </div>
+                            </>
+                        )}
+
+                        <div style={{ gridColumn: 'span 2' }}>
+                            <label>Additional Notes / Disclaimer</label>
+                            <textarea
+                                placeholder="e.g. Selection process involves multiple rounds..."
+                                value={job.note || ""}
+                                onChange={(e) => handleInputChange(index, "note", e.target.value)}
+                                rows={3}
+                                style={{
+                                    width: '100%',
+                                    padding: '12px',
+                                    borderRadius: '8px',
+                                    border: '1px solid #ccc',
+                                    backgroundColor: '#fff',
+                                    color: '#333',
+                                    boxSizing: 'border-box'
+                                }}
+                            />
+                        </div>
 
                         {job.organisationType === "Government" && (
                             <div style={{ gridColumn: 'span 2', marginTop: '10px' }}>
@@ -314,52 +366,6 @@ export default function JobsSection({ jobs, onChange, levelName }) {
                             </div>
                         )}
 
-                        {job.organisationType !== "Government" && (
-                            <>
-                                <div>
-                                    <label>Syllabus (Link or Short Description)</label>
-                                    <input
-                                        type="text"
-                                        placeholder="Link or description"
-                                        value={job.syllabus}
-                                        onChange={(e) =>
-                                            handleInputChange(index, "syllabus", e.target.value)
-                                        }
-                                    />
-                                </div>
-
-                                <div>
-                                    <label>Previous / Sample Question Papers</label>
-                                    <input
-                                        type="text"
-                                        placeholder="Link or description"
-                                        value={job.previousPapers}
-                                        onChange={(e) =>
-                                            handleInputChange(index, "previousPapers", e.target.value)
-                                        }
-                                    />
-                                </div>
-                            </>
-                        )}
-
-                        <div style={{ gridColumn: 'span 2' }}>
-                            <label>Additional Notes / Disclaimer</label>
-                            <textarea
-                                placeholder="e.g. Selection process involves multiple rounds..."
-                                value={job.note || ""}
-                                onChange={(e) => handleInputChange(index, "note", e.target.value)}
-                                rows={3}
-                                style={{
-                                    width: '100%',
-                                    padding: '12px',
-                                    borderRadius: '8px',
-                                    border: '1px solid #ccc',
-                                    backgroundColor: '#fff',
-                                    color: '#333',
-                                    boxSizing: 'border-box'
-                                }}
-                            />
-                        </div>
                     </div>
                 </div>
             ))}

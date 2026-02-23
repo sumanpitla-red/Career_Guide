@@ -12,8 +12,14 @@ const Success = () => {
           <div style={{ fontSize: "5rem", marginBottom: "20px" }}>🎉</div>
           <h1 style={{ color: "#28a745", fontSize: "2.5rem" }}>Success!</h1>
           <p className="inspiring-text">
-            Your career roadmap has been successfully submitted and stored. 
-            Remember, a goal without a plan is just a wish. You've taken the first step towards your professional dreams!
+            Thank you for taking the time to share your professional journey.
+            Your insights will help students who lack exposure, mentorship,
+            and structured guidance.
+          </p>
+
+          <p className="inspiring-text" style={{ marginTop: "15px" }}>
+            Because of professionals like you, talent will no longer be limited
+            by lack of direction. Your contribution creates real impact.
           </p>
           <button 
             className="btn-primary" 

@@ -65,8 +65,12 @@ export default function LevelWrapper({ levelData, onChange, onRemove, index }) {
                     <option value="Under Graduation">Under Graduation</option>
                     <option value="Post Graduation">Post Graduation</option>
                     <option value="PhD">PhD</option>
+                    <option value="Others">Others</option>
                 </select>
             </div>
+
+            
+
 
             <EducationSection
                 education={levelData.educationDetails || {}}
