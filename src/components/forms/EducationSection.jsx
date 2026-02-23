@@ -45,6 +45,7 @@ export default function EducationSection({ education, onChange, levelName }) {
                         <option value="Full-time">Full-time</option>
                         <option value="Part-time">Part-time</option>
                         <option value="Distance">Distance</option>
+                        <option value="NA">NA</option>
                     </select>
                 </div>
                 <div>
@@ -75,6 +76,7 @@ export default function EducationSection({ education, onChange, levelName }) {
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
+                        <option value="NA">NA</option>
                     </select>
                 </div>
                 <div style={{ gridColumn: 'span 2' }}>

@@ -8,6 +8,7 @@ export default function ExamsSection({ exams, onChange, levelName }) {
         categoryCutoffs: [{ category: "General", cutoff: "" }],
         examType: "",
         negativeMarking: "",
+        examLevel: "",
         note: "",
     };
 
@@ -111,6 +112,77 @@ export default function ExamsSection({ exams, onChange, levelName }) {
                             />
                         </div>
 
+                        <div>
+                            <label>Exam Level (State / Central)</label>
+                            <select
+                                value={exam.examLevel || ""}
+                                onChange={(e) =>
+                                    handleInputChange(index, "examLevel", e.target.value)
+                                }
+                                required
+                            >
+                                <option value="">Select</option>
+                                <option value="State">State</option>
+                                <option value="Central">Central</option>
+                                <option value="NA">NA</option>
+                            </select>
+                        </div>
+
+
+
+
+                        <div>
+                            <label>Exam Type</label>
+                            <select
+                                value={exam.examType}
+                                onChange={(e) =>
+                                    handleInputChange(index, "examType", e.target.value)
+                                }
+                                required
+                            >
+                                <option value="">Select</option>
+                                <option value="Online">Online</option>
+                                <option value="Offline">Offline</option>
+                                <option value="Hybrid">Hybrid</option>
+                                <option value="NA">NA</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label>Negative Marking</label>
+                            <select
+                                value={exam.negativeMarking}
+                                onChange={(e) =>
+                                    handleInputChange(index, "negativeMarking", e.target.value)
+                                }
+                                required
+                            >
+                                <option value="">Select</option>
+                                <option value="Yes">Yes</option>
+                                <option value="No">No</option>
+                                <option value="NA">NA</option>
+                            </select>
+                        </div>
+
+                        <div style={{ gridColumn: 'span 2' }}>
+                            <label>Additional Notes / Disclaimer</label>
+                            <textarea
+                                placeholder="e.g. Dates are subject to change..."
+                                value={exam.note || ""}
+                                onChange={(e) => handleInputChange(index, "note", e.target.value)}
+                                rows={3}
+                                style={{
+                                    width: '100%',
+                                    padding: '12px',
+                                    borderRadius: '8px',
+                                    border: '1px solid #ccc',
+                                    backgroundColor: '#fff',
+                                    color: '#333',
+                                    boxSizing: 'border-box'
+                                }}
+                            />
+                        </div>
+
                         <div style={{ gridColumn: 'span 2', marginTop: '10px' }}>
                             <label style={{ fontWeight: 'bold', marginBottom: '10px', display: 'block' }}>Cutoffs by Category</label>
                             {exam.categoryCutoffs.map((catCutoff, catIdx) => (
@@ -129,6 +201,7 @@ export default function ExamsSection({ exams, onChange, levelName }) {
                                             <option value="EWS">EWS</option>
                                             <option value="Minority">Minority</option>
                                             <option value="All">All</option>
+                                            <option value="NA">NA</option>
                                         </select>
                                     </div>
                                     <div style={{ flex: 1 }}>
@@ -161,55 +234,6 @@ export default function ExamsSection({ exams, onChange, levelName }) {
                             </button>
                         </div>
 
-                        <div>
-                            <label>Exam Type</label>
-                            <select
-                                value={exam.examType}
-                                onChange={(e) =>
-                                    handleInputChange(index, "examType", e.target.value)
-                                }
-                                required
-                            >
-                                <option value="">Select</option>
-                                <option value="Online">Online</option>
-                                <option value="Offline">Offline</option>
-                                <option value="Hybrid">Hybrid</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label>Negative Marking</label>
-                            <select
-                                value={exam.negativeMarking}
-                                onChange={(e) =>
-                                    handleInputChange(index, "negativeMarking", e.target.value)
-                                }
-                                required
-                            >
-                                <option value="">Select</option>
-                                <option value="Yes">Yes</option>
-                                <option value="No">No</option>
-                            </select>
-                        </div>
-
-                        <div style={{ gridColumn: 'span 2' }}>
-                            <label>Additional Notes / Disclaimer</label>
-                            <textarea
-                                placeholder="e.g. Dates are subject to change..."
-                                value={exam.note || ""}
-                                onChange={(e) => handleInputChange(index, "note", e.target.value)}
-                                rows={3}
-                                style={{
-                                    width: '100%',
-                                    padding: '12px',
-                                    borderRadius: '8px',
-                                    border: '1px solid #ccc',
-                                    backgroundColor: '#fff',
-                                    color: '#333',
-                                    boxSizing: 'border-box'
-                                }}
-                            />
-                        </div>
                     </div>
                 </div>
             ))

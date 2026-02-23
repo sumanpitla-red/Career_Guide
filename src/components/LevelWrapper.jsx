@@ -97,8 +97,12 @@ export default function LevelWrapper({
                         Post Graduation
                     </option>
                     <option value="PhD">PhD</option>
+                    <option value="Others">Others</option>
                 </select>
             </div>
+
+            
+
 
             <EducationSection
                 education={levelData.educationDetails || {}}

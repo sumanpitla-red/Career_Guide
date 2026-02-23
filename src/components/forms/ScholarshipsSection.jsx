@@ -101,6 +101,7 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                                 <option value="Private">Private</option>
                                 <option value="University">University</option>
                                 <option value="NGO">NGO</option>
+                                <option value="NA">NA</option>
                             </select>
                         </div>
 
@@ -119,6 +120,7 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                                 <option value="Category-Based">Category-Based</option>
                                 <option value="Sports">Sports</option>
                                 <option value="Research">Research</option>
+                                <option value="NA">NA</option>
                             </select>
                         </div>
 
@@ -137,6 +139,7 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                                 <option value="OBC">OBC</option>
                                 <option value="EWS">EWS</option>
                                 <option value="General">General</option>
+                                <option value="NA">NA</option>
                             </select>
                         </div>
 
@@ -152,55 +155,7 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                             />
                         </div>
 
-                        <div style={{ gridColumn: 'span 2', marginTop: '10px' }}>
-                            <label style={{ fontWeight: 'bold', marginBottom: '10px', display: 'block' }}>Scholarship Amounts by Category</label>
-                            {item.categoryAmounts.map((catAmt, catIdx) => (
-                                <div key={catIdx} style={{ display: 'flex', gap: '10px', marginBottom: '10px', alignItems: 'flex-end' }}>
-                                    <div style={{ flex: 1 }}>
-                                        <label style={{ fontSize: '12px' }}>Category</label>
-                                        <select
-                                            value={catAmt.category}
-                                            onChange={(e) => handleCategoryAmountChange(index, catIdx, "category", e.target.value)}
-                                            required
-                                        >
-                                            <option value="">Select Category</option>
-                                            <option value="General">General</option>
-                                            <option value="OBC">OBC</option>
-                                            <option value="SC/ST">SC/ST</option>
-                                            <option value="EWS">EWS</option>
-                                            <option value="Minority">Minority</option>
-                                            <option value="All">All</option>
-                                        </select>
-                                    </div>
-                                    <div style={{ flex: 1 }}>
-                                        <label style={{ fontSize: '12px' }}>Amount</label>
-                                        <input
-                                            type="text"
-                                            placeholder="e.g. ₹50,000"
-                                            value={catAmt.amount}
-                                            onChange={(e) => handleCategoryAmountChange(index, catIdx, "amount", e.target.value)}
-                                            required
-                                        />
-                                    </div>
-                                    {item.categoryAmounts.length > 1 && (
-                                        <button
-                                            type="button"
-                                            onClick={() => handleRemoveCategoryAmount(index, catIdx)}
-                                            style={{ backgroundColor: "#ff4d4d", padding: '10px', height: '42px' }}
-                                        >
-                                            ✕
-                                        </button>
-                                    )}
-                                </div>
-                            ))}
-                            <button
-                                type="button"
-                                onClick={() => handleAddCategoryAmount(index)}
-                                style={{ backgroundColor: "#2e7d32", fontSize: '12px', padding: '5px 10px', marginTop: '5px' }}
-                            >
-                                + Add Category Amount
-                            </button>
-                        </div>
+
 
                         <div>
                             <label>Renewal Type</label>
@@ -214,6 +169,7 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                                 <option value="">Select</option>
                                 <option value="One-Time">One-Time</option>
                                 <option value="Yearly">Yearly</option>
+                                <option value="NA">NA</option>
                             </select>
                         </div>
 
@@ -247,6 +203,58 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                                 }}
                             />
                         </div>
+
+                        <div style={{ gridColumn: 'span 2', marginTop: '10px' }}>
+                            <label style={{ fontWeight: 'bold', marginBottom: '10px', display: 'block' }}>Scholarship Amounts by Category</label>
+                            {item.categoryAmounts.map((catAmt, catIdx) => (
+                                <div key={catIdx} style={{ display: 'flex', gap: '10px', marginBottom: '10px', alignItems: 'flex-end' }}>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={{ fontSize: '12px' }}>Category</label>
+                                        <select
+                                            value={catAmt.category}
+                                            onChange={(e) => handleCategoryAmountChange(index, catIdx, "category", e.target.value)}
+                                            required
+                                        >
+                                            <option value="">Select Category</option>
+                                            <option value="General">General</option>
+                                            <option value="OBC">OBC</option>
+                                            <option value="SC/ST">SC/ST</option>
+                                            <option value="EWS">EWS</option>
+                                            <option value="Minority">Minority</option>
+                                            <option value="All">All</option>
+                                            <option value="NA">NA</option>
+                                        </select>
+                                    </div>
+                                    <div style={{ flex: 1 }}>
+                                        <label style={{ fontSize: '12px' }}>Amount</label>
+                                        <input
+                                            type="text"
+                                            placeholder="e.g. ₹50,000"
+                                            value={catAmt.amount}
+                                            onChange={(e) => handleCategoryAmountChange(index, catIdx, "amount", e.target.value)}
+                                            required
+                                        />
+                                    </div>
+                                    {item.categoryAmounts.length > 1 && (
+                                        <button
+                                            type="button"
+                                            onClick={() => handleRemoveCategoryAmount(index, catIdx)}
+                                            style={{ backgroundColor: "#ff4d4d", padding: '10px', height: '42px' }}
+                                        >
+                                            ✕
+                                        </button>
+                                    )}
+                                </div>
+                            ))}
+                            <button
+                                type="button"
+                                onClick={() => handleAddCategoryAmount(index)}
+                                style={{ backgroundColor: "#2e7d32", fontSize: '12px', padding: '5px 10px', marginTop: '5px' }}
+                            >
+                                + Add Category Amount
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             ))}

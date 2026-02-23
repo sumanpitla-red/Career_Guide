@@ -97,6 +97,24 @@ export default function CareerRoadmapPage() {
                     />
                 ))}
 
+                <div style={{
+                    backgroundColor: "rgba(255, 165, 0, 0.1)",
+                    borderLeft: "4px solid orange",
+                    padding: "15px",
+                    margin: "20px 0",
+                    borderRadius: "8px",
+                    textAlign: "left",
+                    color: "#eee",
+                    fontSize: "0.95rem",
+                    lineHeight: "1.5"
+                }}>
+                    <strong>Note:</strong> Please respond to all fields before submitting. 
+                    If any section is not relevant to your experience, simply enter 
+                    <strong>"NA"</strong> or select <strong>"NA"</strong>. 
+                    Kindly ensure each response reflects your professional journey.
+                </div>
+
+
                 <div className="roadmap-actions">
                     <button
                         type="button"
