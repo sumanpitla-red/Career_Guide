@@ -188,7 +188,7 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                         <div style={{ gridColumn: 'span 2' }}>
                             <label>Additional Notes / Disclaimer</label>
                             <textarea
-                                placeholder="e.g. Ensure all documents are uploaded before the deadline..."
+                                placeholder="e.g., Minimum academic requirements, selection process, renewal performance criteria, or important scholarship guidelines"
                                 value={item.note || ""}
                                 onChange={(e) => handleInputChange(index, "note", e.target.value)}
                                 rows={3}

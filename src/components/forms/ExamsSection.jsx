@@ -163,11 +163,21 @@ export default function ExamsSection({ exams, onChange, levelName }) {
                                 <option value="NA">NA</option>
                             </select>
                         </div>
-
+<div>
+                            <label>Recommended Preparation Resources</label>
+                                <input
+                                    type="text"
+                                    placeholder="e.g., Standard textbooks, online courses, coaching institutes, reference materials"
+                                    value={exam.recommendedResources}
+                                    onChange={(e) =>
+                                            handleInputChange(index, "recommendedResources", e.target.value)
+                                        }
+                                    />
+                                </div>
                         <div style={{ gridColumn: 'span 2' }}>
                             <label>Additional Notes / Disclaimer</label>
                             <textarea
-                                placeholder="e.g. Dates are subject to change..."
+                                placeholder="e.g., Age criteria, attempt limits, cut-off trends, or other important exam details"
                                 value={exam.note || ""}
                                 onChange={(e) => handleInputChange(index, "note", e.target.value)}
                                 rows={3}

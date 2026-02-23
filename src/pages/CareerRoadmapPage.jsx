@@ -82,11 +82,43 @@ export default function CareerRoadmapPage() {
                         borderRadius: "8px",
                     }}
                 >
-                    Targeting Profession:{" "}
+                    Target Profession:{" "}
                     <strong style={{ color: "#00d4ff" }}>
                         {formData.basicInfo?.profession}
                     </strong>
                 </p>
+                <div style={{
+                    backgroundColor: "rgba(0, 123, 255, 0.08)",
+                    border: "1px solid rgba(0, 123, 255, 0.2)",
+                    padding: "10px 14px",
+                    margin: "10px 0",
+                    borderRadius: "6px",
+                    textAlign: "left",
+                    color: "#ddd",
+                    fontSize: "0.9rem"
+                }}>
+                    📘 <strong>Before You Begin:</strong> Please review the Workflow Guide below to understand how to structure your career levels properly.
+                </div>
+                <div style={{
+                    backgroundColor: "rgba(0, 212, 255, 0.08)",
+                    borderLeft: "4px solid #00d4ff",
+                    padding: "15px",
+                    margin: "15px 0",
+                    borderRadius: "8px",
+                    textAlign: "left",
+                    color: "#eee",
+                    fontSize: "0.95rem",
+                    lineHeight: "1.6"
+                }}>
+                    <strong>Workflow Guide:</strong><br />
+                    <strong>Step 1:</strong> Enter <strong>Level 1</strong> as your earliest stage relevant to the targeted profession 
+                    (e.g., Intermediate / Diploma).<br />
+                    <strong>Step 2:</strong> Click <strong>"Add Next Career Level"</strong> and enter the next stage 
+                    (e.g., Graduation required for eligibility).<br />
+                    <strong>Step 3:</strong> Continue adding levels in chronological order 
+                    (Level 3, Level 4, and so on) until you reach your current position or highest milestone.<br />
+                    <strong>Step 4:</strong> Review all entries and click <strong>"Submit Roadmap"</strong> to save your career roadmap.
+                </div>
                 <div style={{
                     backgroundColor: "rgba(255, 165, 0, 0.1)",
                     borderLeft: "4px solid orange",

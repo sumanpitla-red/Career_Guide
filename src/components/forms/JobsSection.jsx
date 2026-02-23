@@ -13,7 +13,7 @@ export default function JobsSection({ jobs, onChange, levelName }) {
         officialWebsite: "",
         notificationFrequency: "",
         syllabus: "",
-        previousPapers: "",
+        recommended_sources: "",
         note: "",
         recruitmentProcess: [{ roundName: "", roundDetails: "", syllabus: "", previousPapers: "" }],
     };
@@ -248,13 +248,13 @@ export default function JobsSection({ jobs, onChange, levelName }) {
                                 </div>
 
                                 <div>
-                                    <label>Previous / Sample Question Papers</label>
+                                    <label>Recommended Preparation Resources</label>
                                     <input
                                         type="text"
-                                        placeholder="Link or description"
-                                        value={job.previousPapers}
+                                        placeholder="e.g., Standard textbooks, online courses, coaching institutes, reference materials"
+                                        value={job.recommendedSources}
                                         onChange={(e) =>
-                                            handleInputChange(index, "previousPapers", e.target.value)
+                                            handleInputChange(index, "recommendedResources", e.target.value)
                                         }
                                     />
                                 </div>
