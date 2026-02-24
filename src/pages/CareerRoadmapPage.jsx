@@ -111,11 +111,11 @@ export default function CareerRoadmapPage() {
                     lineHeight: "1.6"
                 }}>
                     <strong>Workflow Guide:</strong><br />
-                    <strong>Step 1:</strong> Enter <strong>Level 1</strong> as your earliest stage relevant to the targeted profession 
+                    <strong>Step 1:</strong> Enter <strong>Level 1</strong> as your earliest stage relevant to the targeted profession
                     (e.g., Intermediate / Diploma).<br />
-                    <strong>Step 2:</strong> Click <strong>"Add Next Career Level"</strong> and enter the next stage 
+                    <strong>Step 2:</strong> Click <strong>"Add Next Career Level"</strong> and enter the next stage
                     (e.g., Graduation required for eligibility).<br />
-                    <strong>Step 3:</strong> Continue adding levels in chronological order 
+                    <strong>Step 3:</strong> Continue adding levels in chronological order
                     (Level 3, Level 4, and so on) until you reach your current position or highest milestone.<br />
                     <strong>Step 4:</strong> Review all entries and click <strong>"Submit Roadmap"</strong> to save your career roadmap.
                 </div>
@@ -134,6 +134,59 @@ export default function CareerRoadmapPage() {
                     If any section Field is not relevant or not applicable to your experience, simply enter
                     <strong>"NA"</strong> or select <strong>"NA"</strong>.
                     Kindly ensure each response reflects your professional journey.
+                </div>
+
+                {/* Contact Support Box */}
+                <div style={{
+                    background: "rgba(255, 255, 255, 0.05)",
+                    backdropFilter: "blur(10px)",
+                    border: "1px solid rgba(255, 255, 255, 0.1)",
+                    borderRadius: "12px",
+                    padding: "20px",
+                    margin: "25px 0",
+                    textAlign: "left",
+                    boxShadow: "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
+                }}>
+                    <h3 style={{
+                        color: "#00d4ff",
+                        marginTop: 0,
+                        marginBottom: "10px",
+                        fontSize: "1.2rem",
+                        display: "flex",
+                        alignItems: "center",
+                        gap: "10px"
+                    }}>
+                        <span style={{ fontSize: "1.5rem" }}>🎧</span> Professional Data Entry Support
+                    </h3>
+                    <p style={{ color: "#ddd", marginBottom: "15px", fontSize: "0.95rem" }}>
+                        If any queries related to data entry or any technical issues please contact us:
+                    </p>
+                    <div style={{
+                        display: "grid",
+                        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+                        gap: "15px"
+                    }}>
+                        <div style={{
+                            background: "rgba(0, 212, 255, 0.1)",
+                            padding: "12px",
+                            borderRadius: "8px",
+                            border: "1px solid rgba(0, 212, 255, 0.2)"
+                        }}>
+                            <span style={{ fontWeight: "bold", color: "#00d4ff" }}>1. Suman Pitla</span>
+                            <br />
+                            <span style={{ color: "#eee" }}>Mob No: 6305779539</span>
+                        </div>
+                        <div style={{
+                            background: "rgba(0, 212, 255, 0.1)",
+                            padding: "12px",
+                            borderRadius: "8px",
+                            border: "1px solid rgba(0, 212, 255, 0.2)"
+                        }}>
+                            <span style={{ fontWeight: "bold", color: "#00d4ff" }}>2. Naresh Chary</span>
+                            <br />
+                            <span style={{ color: "#eee" }}>Mob No: 93812 09785</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
