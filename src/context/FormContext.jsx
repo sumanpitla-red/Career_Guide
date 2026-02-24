@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useCallback, useState } from "react";
 
 export const FormContext = createContext();
 
@@ -7,8 +7,16 @@ export function FormProvider({ children }) {
     basicInfo: {},
     careerPath: []
   });
+
+  const resetForm = useCallback(() => {
+    setFormData({
+      basicInfo: {},
+      careerPath: []
+    });
+  }, []);
+
   return (
-    <FormContext.Provider value={{ formData, setFormData }}>
+    <FormContext.Provider value={{ formData, setFormData, resetForm }}>
       {children}
     </FormContext.Provider>
   );

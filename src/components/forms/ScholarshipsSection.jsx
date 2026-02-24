@@ -101,6 +101,7 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                                 <option value="Private">Private</option>
                                 <option value="University">University</option>
                                 <option value="NGO">NGO</option>
+                                <option value="NA">NA</option>
                             </select>
                         </div>
 
@@ -119,6 +120,7 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                                 <option value="Category-Based">Category-Based</option>
                                 <option value="Sports">Sports</option>
                                 <option value="Research">Research</option>
+                                <option value="NA">NA</option>
                             </select>
                         </div>
 
@@ -137,6 +139,7 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                                 <option value="OBC">OBC</option>
                                 <option value="EWS">EWS</option>
                                 <option value="General">General</option>
+                                <option value="NA">NA</option>
                             </select>
                         </div>
 
@@ -149,6 +152,55 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                                 onChange={(e) =>
                                     handleInputChange(index, "incomeLimit", e.target.value)
                                 }
+                            />
+                        </div>
+
+
+
+                        <div>
+                            <label>Renewal Type</label>
+                            <select
+                                value={item.renewalType}
+                                onChange={(e) =>
+                                    handleInputChange(index, "renewalType", e.target.value)
+                                }
+                                required
+                            >
+                                <option value="">Select</option>
+                                <option value="One-Time">One-Time</option>
+                                <option value="Yearly">Yearly</option>
+                                <option value="NA">NA</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label>Official Website</label>
+                            <input
+                                type="url"
+                                placeholder="https://example.com"
+                                value={item.officialWebsite}
+                                onChange={(e) =>
+                                    handleInputChange(index, "officialWebsite", e.target.value)
+                                }
+                            />
+                        </div>
+
+                        <div style={{ gridColumn: 'span 2' }}>
+                            <label>Additional Notes / Disclaimer</label>
+                            <textarea
+                                placeholder="e.g., Minimum academic requirements, selection process, renewal performance criteria, or important scholarship guidelines"
+                                value={item.note || ""}
+                                onChange={(e) => handleInputChange(index, "note", e.target.value)}
+                                rows={3}
+                                style={{
+                                    width: '100%',
+                                    padding: '12px',
+                                    borderRadius: '8px',
+                                    border: '1px solid #ccc',
+                                    backgroundColor: '#fff',
+                                    color: '#333',
+                                    boxSizing: 'border-box'
+                                }}
                             />
                         </div>
 
@@ -170,6 +222,7 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                                             <option value="EWS">EWS</option>
                                             <option value="Minority">Minority</option>
                                             <option value="All">All</option>
+                                            <option value="NA">NA</option>
                                         </select>
                                     </div>
                                     <div style={{ flex: 1 }}>
@@ -202,51 +255,6 @@ export default function ScholarshipsSection({ scholarships, onChange, levelName 
                             </button>
                         </div>
 
-                        <div>
-                            <label>Renewal Type</label>
-                            <select
-                                value={item.renewalType}
-                                onChange={(e) =>
-                                    handleInputChange(index, "renewalType", e.target.value)
-                                }
-                                required
-                            >
-                                <option value="">Select</option>
-                                <option value="One-Time">One-Time</option>
-                                <option value="Yearly">Yearly</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <label>Official Website</label>
-                            <input
-                                type="url"
-                                placeholder="https://example.com"
-                                value={item.officialWebsite}
-                                onChange={(e) =>
-                                    handleInputChange(index, "officialWebsite", e.target.value)
-                                }
-                            />
-                        </div>
-
-                        <div style={{ gridColumn: 'span 2' }}>
-                            <label>Additional Notes / Disclaimer</label>
-                            <textarea
-                                placeholder="e.g. Ensure all documents are uploaded before the deadline..."
-                                value={item.note || ""}
-                                onChange={(e) => handleInputChange(index, "note", e.target.value)}
-                                rows={3}
-                                style={{
-                                    width: '100%',
-                                    padding: '12px',
-                                    borderRadius: '8px',
-                                    border: '1px solid #ccc',
-                                    backgroundColor: '#fff',
-                                    color: '#333',
-                                    boxSizing: 'border-box'
-                                }}
-                            />
-                        </div>
                     </div>
                 </div>
             ))}

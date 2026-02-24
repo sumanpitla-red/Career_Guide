@@ -45,6 +45,7 @@ export default function EducationSection({ education, onChange, levelName }) {
                         <option value="Full-time">Full-time</option>
                         <option value="Part-time">Part-time</option>
                         <option value="Distance">Distance</option>
+                        <option value="NA">NA</option>
                     </select>
                 </div>
                 <div>
@@ -75,9 +76,10 @@ export default function EducationSection({ education, onChange, levelName }) {
                         <option value="">Select</option>
                         <option value="Yes">Yes</option>
                         <option value="No">No</option>
+                        <option value="NA">NA</option>
                     </select>
                 </div>
-                <div style={{ gridColumn: 'span 2' }}>
+                <div >
                     <label>Additional Notes / Disclaimer</label>
                     <textarea
                         placeholder="e.g. Admission criteria may vary by college..."
@@ -95,6 +97,25 @@ export default function EducationSection({ education, onChange, levelName }) {
                         }}
                     />
                 </div>
+
+                <div>
+    <label>Top Colleges</label>
+    <textarea
+        placeholder="e.g. IIT-Bombay, OU, JNTU, HCU"
+        value={education.topColleges || ""}
+        onChange={(e) => handleChange("topColleges", e.target.value)}
+        rows={3}
+        style={{
+            width: '100%',
+            padding: '12px',
+            borderRadius: '8px',
+            border: '1px solid #ccc',
+            backgroundColor: '#fff',
+            color: '#333',
+            boxSizing: 'border-box'
+        }}
+    />
+</div>
             </div>
         </div>
     );
